@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import * as BooksAPI from "../BooksAPI";
 
+import BookShelf from './BookShelf';
+
 class App extends Component {
   state = {
     books: []
@@ -15,7 +17,7 @@ class App extends Component {
   }
 
   render() {
-    return <div>hey there</div>;
+    return <BookShelf />;
   }
 }
 
