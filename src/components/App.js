@@ -16,10 +16,11 @@ class App extends Component {
     let booksCopy = this.state.books.slice();
     let index = booksCopy.findIndex(bk => bk.id === book.id);
 
+    BooksAPI.update(book, book.shelf)
+
     if (index >= 0) {
       booksCopy[index] = book;
     } else {
-      BooksAPI.update(book, book.shelf)
       booksCopy.push(book);
     }
 
