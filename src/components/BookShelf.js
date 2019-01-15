@@ -7,10 +7,12 @@ const BookShelf = props => {
     <div className="list-books">
       <div className="list-books-content">
         <div>
-          <Shelf books={props.books}/>
+          <Shelf shelf="Currently Reading" books={props.books.filter(book => book.shelf === 'currentlyReading')}/>
+          <Shelf shelf="Want to Read" books={props.books.filter(book => book.shelf === 'wantToRead')}/>
+          <Shelf shelf="Read" books={props.books.filter(book => book.shelf === 'read')}/>
         </div>
       </div>
-    </div>    
+    </div>
   )
 };
 
