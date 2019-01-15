@@ -50,7 +50,7 @@ class Search extends Component {
         </div>
         <div className="search-books-results">
 
-            <Shelf books={this.state.searchResults} shelf="Search Results" changeShelf={this.props.changeShelf}/>
+            <Shelf books={this.state.searchResults} shelf="Search Results" changeShelf={this.props.changeShelf} usersBooks={this.props.books}/>
 
                       <ol className="books-grid" />
         </div>

@@ -53,7 +53,7 @@ class App extends Component {
         <SearchButton />
         <Route
           path="/search"
-          render={() => <Search changeShelf={this.changeShelf} />}
+          render={() => <Search changeShelf={this.changeShelf} books={this.state.books}/>}
         />
       </div>
     );

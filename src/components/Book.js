@@ -3,14 +3,21 @@ import React, { Component } from "react";
 class Book extends Component {
   onChange = event => {
     let bookCopy = { ...this.props.book };
-
     bookCopy.shelf = event.target.value;
 
     this.props.changeShelf(bookCopy);
   };
 
   render() {
-    const { book } = this.props;
+    let book = { ...this.props.book };
+
+    if (this.props.usersBooks) {
+      this.props.usersBooks.forEach(userBook => {
+        if (userBook.id === book.id) {
+          book.shelf = userBook.shelf;
+        }
+      });
+    }
     return (
       <li>
         <div className="book">
@@ -20,11 +27,12 @@ class Book extends Component {
               style={{
                 width: 128,
                 height: 193,
-                backgroundImage: book.imageLinks && `url(${book.imageLinks.thumbnail})` 
+                backgroundImage:
+                  book.imageLinks && `url(${book.imageLinks.thumbnail})`
               }}
             />
             <div className="book-shelf-changer">
-              <select onChange={this.onChange} value={book.shelf || 'none'}>
+              <select onChange={this.onChange} value={book.shelf || "none"}>
                 <option value="move" disabled>
                   Move to...
                 </option>
