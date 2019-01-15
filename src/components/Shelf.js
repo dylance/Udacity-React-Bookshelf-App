@@ -8,7 +8,7 @@ const Shelf = props => {
       <h2 className="bookshelf-title">{props.shelf}</h2>
       <div className="bookshelf-books">
         <ol className="books-grid">
-          {props.books.map(book => {
+          {props.books instanceof Array && props.books.map(book => {
             return <Book key={book.id} book={book} changeShelf={props.changeShelf}/>
           })}
         </ol>
