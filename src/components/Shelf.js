@@ -26,7 +26,7 @@ const Shelf = props => {
   );
 };
 
-static propTypes = {
+Shelf.propTypes = {
   books: PropTypes.array.isRequired,
   changeShelf: PropTypes.func.isRequired,
   usersBooks: PropTypes.func
