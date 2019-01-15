@@ -28,7 +28,6 @@ class App extends Component {
   };
 
   componentDidMount() {
-    console.log("the component has been mounted");
     BooksAPI.getAll().then(books => {
       this.setState({
         books
