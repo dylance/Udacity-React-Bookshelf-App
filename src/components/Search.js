@@ -13,16 +13,18 @@ class Search extends Component {
   onChange = event => {
     const { value } = event.target;
 
+    this.setState({
+      searchValue: value
+    });
+
     if (value) {
       BooksAPI.search(value).then(results => {
         this.setState({
-          searchValue: value,
           searchResults: results
         });
       });
     } else {
       this.setState({
-        searchValue: value,
         searchResults: []
       });
     }
