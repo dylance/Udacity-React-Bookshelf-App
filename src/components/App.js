@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import "../App.css";
 import * as BooksAPI from "../BooksAPI";
+import { Route } from "react-router-dom";
 
 import BookShelf from "./BookShelf";
 import SearchButton from "./SearchButton";
+import Search from './Search';
 
 class App extends Component {
   state = {
@@ -32,8 +34,23 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <BookShelf books={this.state.books} changeShelf={this.changeShelf} />
+        <Route
+          exact
+          path="/"
+          render={() => (
+            <BookShelf
+              books={this.state.books}
+              changeShelf={this.changeShelf}
+            />
+          )}
+        />
         <SearchButton />
+        <Route
+          path="/search"
+          render={() => (
+            <Search />
+          )}
+        />  
       </div>
     );
   }
