@@ -3,6 +3,7 @@ import "../App.css";
 import * as BooksAPI from "../BooksAPI";
 
 import BookShelf from "./BookShelf";
+import SearchButton from "./SearchButton";
 
 class App extends Component {
   state = {
@@ -32,6 +33,7 @@ class App extends Component {
     return (
       <div className="app">
         <BookShelf books={this.state.books} changeShelf={this.changeShelf} />
+        <SearchButton />
       </div>
     );
   }
