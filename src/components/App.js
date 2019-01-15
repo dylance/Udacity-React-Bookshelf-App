@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import '../App.css'
 import * as BooksAPI from "../BooksAPI";
 
 import BookShelf from './BookShelf';
@@ -18,10 +19,12 @@ class App extends Component {
 
   render() {
     return (
-      <BookShelf
-        books={this.state.books}
-      />
-    )  
+      <div className="app">
+        <BookShelf
+          books={this.state.books}
+        />
+      </div>
+    )
   }
 }
 
