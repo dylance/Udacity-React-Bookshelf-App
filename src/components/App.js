@@ -19,6 +19,7 @@ class App extends Component {
     if (index > 0) {
       booksCopy[index] = book;
     } else {
+      BooksAPI.update(book, book.shelf)
       booksCopy.push(book);
     }
 
