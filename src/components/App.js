@@ -17,7 +17,11 @@ class App extends Component {
   }
 
   render() {
-    return <BookShelf />;
+    return (
+      <BookShelf
+        books={this.state.books}
+      />
+    )  
   }
 }
 

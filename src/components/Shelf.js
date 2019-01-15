@@ -5,9 +5,9 @@ import Book from './Book'
 const Shelf = props => {
   return (
     <div>
-      <Book />
-      <Book />
-      <Book />
+      {props.books.map(book => {
+        return <Book key={book.id} book={book} />
+      })}
     </div>
   )
 }
