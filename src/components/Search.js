@@ -61,8 +61,6 @@ class Search extends Component {
             changeShelf={this.props.changeShelf}
             usersBooks={this.props.books}
           />
-
-          <ol className="books-grid" />
         </div>
       </div>
     );
