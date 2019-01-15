@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import * as BooksAPI from "../util/BooksAPI";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-import Shelf from './Shelf';
+import Shelf from "./Shelf";
 
 class Search extends Component {
   state = {
@@ -13,22 +13,26 @@ class Search extends Component {
   onChange = event => {
     const { value } = event.target;
 
-    BooksAPI.search(value).then(results => {
+    if (value) {
+      BooksAPI.search(value).then(results => {
+        this.setState({
+          searchValue: value,
+          searchResults: results
+        });
+      });
+    } else {
       this.setState({
         searchValue: value,
-        searchResults: results
+        searchResults: []
       });
-    });
+    }
   };
 
   render() {
     return (
       <div className="search-books">
         <div className="search-books-bar">
-          <Link
-            className="close-search"
-            to="/"
-          >
+          <Link className="close-search" to="/">
             Close
           </Link>
           <div className="search-books-input-wrapper">
@@ -49,10 +53,14 @@ class Search extends Component {
           </div>
         </div>
         <div className="search-books-results">
+          <Shelf
+            books={this.state.searchResults}
+            shelf="Search Results"
+            changeShelf={this.props.changeShelf}
+            usersBooks={this.props.books}
+          />
 
-            <Shelf books={this.state.searchResults} shelf="Search Results" changeShelf={this.props.changeShelf} usersBooks={this.props.books}/>
-
-                      <ol className="books-grid" />
+          <ol className="books-grid" />
         </div>
       </div>
     );
