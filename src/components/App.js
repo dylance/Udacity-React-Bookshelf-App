@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import "../App.css";
-import * as BooksAPI from "../BooksAPI";
+import "../styles/App.css";
+import * as BooksAPI from "../util/BooksAPI";
 import { Route } from "react-router-dom";
 
 import BookShelf from "./BookShelf";
