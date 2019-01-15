@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import * as BooksAPI from "../BooksAPI";
 
+import Shelf from './Shelf';
+
 class Search extends Component {
   state = {
     searchValue: "",
@@ -46,7 +48,10 @@ class Search extends Component {
           </div>
         </div>
         <div className="search-books-results">
-          <ol className="books-grid" />
+
+            <Shelf books={this.state.searchResults} shelf="Search Results" />
+
+                      <ol className="books-grid" />
         </div>
       </div>
     );
