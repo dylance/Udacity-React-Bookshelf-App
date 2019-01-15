@@ -5,7 +5,7 @@ import { Route } from "react-router-dom";
 
 import BookShelf from "./BookShelf";
 import SearchButton from "./SearchButton";
-import Search from './Search';
+import Search from "./Search";
 
 class App extends Component {
   state = {
@@ -16,7 +16,11 @@ class App extends Component {
     let booksCopy = this.state.books.slice();
     let index = booksCopy.findIndex(bk => bk.id === book.id);
 
-    booksCopy[index] = book;
+    if (index > 0) {
+      booksCopy[index] = book;
+    } else {
+      booksCopy.push(book);
+    }
 
     this.setState({
       books: booksCopy
@@ -24,6 +28,7 @@ class App extends Component {
   };
 
   componentDidMount() {
+    console.log("the component has been mounted");
     BooksAPI.getAll().then(books => {
       this.setState({
         books
@@ -47,10 +52,8 @@ class App extends Component {
         <SearchButton />
         <Route
           path="/search"
-          render={() => (
-            <Search />
-          )}
-        />  
+          render={() => <Search changeShelf={this.changeShelf} />}
+        />
       </div>
     );
   }

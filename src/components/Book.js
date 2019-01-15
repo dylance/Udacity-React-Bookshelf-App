@@ -4,6 +4,7 @@ class Book extends Component {
   onChange = event => {
     console.log(event.target.value);
     let bookCopy = { ...this.props.book };
+
     bookCopy.shelf = event.target.value;
 
     this.props.changeShelf(bookCopy);
