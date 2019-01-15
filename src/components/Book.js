@@ -24,7 +24,7 @@ class Book extends Component {
               }}
             />
             <div className="book-shelf-changer">
-              <select onChange={this.onChange} value={book.shelf}>
+              <select onChange={this.onChange} value={book.shelf || 'none'}>
                 <option value="move" disabled>
                   Move to...
                 </option>
