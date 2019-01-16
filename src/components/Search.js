@@ -3,14 +3,13 @@ import PropTypes from "prop-types";
 import * as BooksAPI from "../utils/BooksAPI";
 import { Link } from "react-router-dom";
 
-
 import Shelf from "./Shelf";
 
 class Search extends Component {
   static propTypes = {
     books: PropTypes.array.isRequired,
     changeShelf: PropTypes.func.isRequired
-  }
+  };
 
   state = {
     searchValue: "",
@@ -26,9 +25,12 @@ class Search extends Component {
 
     if (value) {
       BooksAPI.search(value).then(results => {
-        this.setState({
-          searchResults: results
-        });
+        console.log("The results are:", results);
+        if (!results.error) {
+          this.setState({
+            searchResults: results
+          });
+        }
       });
     } else {
       this.setState({
