@@ -29,7 +29,7 @@ const Shelf = props => {
 Shelf.propTypes = {
   books: PropTypes.array.isRequired,
   changeShelf: PropTypes.func.isRequired,
-  usersBooks: PropTypes.func
+  usersBooks: PropTypes.array
 };
 
 export default Shelf;
